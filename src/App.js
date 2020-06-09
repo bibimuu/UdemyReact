@@ -10,31 +10,32 @@ import React from 'react';
 // }
 
 const App = () => {
+  const profiles = [
+    {name:"Taro", age: 10},
+    {name:"Hanako", age: 1},
+    {name:"Hao"}
+  ]
   return (
     <div>
-      <Cat/>
-      <Cat/>
-      <Cat/>
-      <Cat/>
+      {
+        profiles.map((profile,index) => {
+          return <User key={index} name={profile.name} age={profile.age}/>
+        })
+      }
+      <User name={"Taro"} age={10}/>
+      <User name={"Hanako"} age={1}/>
     </div>
   )
 }
 
-const Cat = () => {
+const User = (props) => {
   return (
-    <div>Meow!</div>
+    <div>Meow! {props.name} {props.age}</div>
   )
 }
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <>
-//         <label htmlFor="barr">bar</label>
-//         <input type="text" id="barr" onChange={() => {console.log("aaa")}} />
-//       </>
-//     )
-//   }
-// }
+User.defaultProps = {
+  age: 1
+}
 
 export default App;
