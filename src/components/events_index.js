@@ -34,7 +34,6 @@ class EventsIndex extends Component {
   // }
 
   render(){
-
     return(
       <>
         <table>
