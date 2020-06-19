@@ -1,41 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-// function App() {
-//   return (
-//     <>
-//       <label htmlFor="barr">bar</label>
-//       <input type="text" id="barr" onChange={() => {console.log("aaa")}} />
-//     </>
-//   );
-// }
+const App = () => (
+    <Counter>
 
-const App = () => {
-  const profiles = [
-    {name:"Taro", age: 10},
-    {name:"Hanako", age: 1},
-    {name:"Hao"}
-  ]
-  return (
-    <div>
-      {
-        profiles.map((profile,index) => {
-          return <User key={index} name={profile.name} age={profile.age}/>
-        })
-      }
-      <User name={"Taro"} age={10}/>
-      <User name={"Hanako"} age={1}/>
-    </div>
+    </Counter>
   )
-}
 
-const User = (props) => {
-  return (
-    <div>Meow! {props.name} {props.age}</div>
-  )
-}
+class Counter extends Component {
+  constructor(props){
+    super(props)
+    this.state = {count:0}
+  }
 
-User.defaultProps = {
-  age: 1
+  handlePlusButton = () => {
+    this.setState({count: this.state.count + 1})
+  }
+
+  handleMinusButton = () => {
+    this.setState({count: this.state.count - 1})
+  }
+
+  render(){
+    return(
+      <>
+      <div>count:{this.state.count}</div>
+      <button onClick={this.handlePlusButton}>+1</button>
+      <button onClick={this.handleMinusButton}>-1</button>
+      </>
+    )
+  }
 }
 
 export default App;
