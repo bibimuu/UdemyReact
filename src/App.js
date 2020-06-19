@@ -3,9 +3,7 @@ import React from 'react';
 function App() {
   return (
     <div>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+          <h1>Edit <code>src/App.js</code> and save to reload.</h1>
     </div>
   );
 }
